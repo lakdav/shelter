@@ -1,19 +1,50 @@
+@use '../absttracts/' as *;
 :root {
-	--clr-light: #ffffff;
-	--clr-light-100: #f6f6f6;
-	--clr-light-200: #fafafa;
-	--clr-grey-200: #cdcdcd;
-	--clr-grey: #b2b2b2;
-	--clr-dark-500: #4c4c4c;
-	--clr-dark-600: #444444;
-	--clr-dark-700: #292929;
-    --clr-primary-200:#F1CDB3
-    --clr-primary:#FDDCC4
+	--clr-light-xl: #ffffff;
+	--clr-light-l: #f6f6f6;
+	--clr-light-s: #fafafa;
+	--clr-dark-s: #cdcdcd;
+	--clr-dark-m: #b2b2b2;
+	--clr-dark-l: #545454;
+	--clr-dark-xl: #4c4c4c;
+	--clr-dark-2xl: #444444;
+	--clr-dark-3xl: #292929;
+	--clr-primary: #f1cdb3;
+	--clr-primary-light: #fddcc4;
 
-    --screen-gradient:radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%)
-    --footer-gradient:radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
-
+	--screen-gradient: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
+	--footer-gradient: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 }
-body{
+body {
 	font-family: 'Noto Serif Georgian', serif;
+	overflow-x: hidden;
+}
+
+.grid {
+	--gap: 2rem;
+	display: grid;
+	grid-template-columns: auto var(--gap) [content] minmax(0, calc(128rem - (var(--p) * 2))) [content] var(--gap) auto;
+	& > * {
+		grid-area: content;
+	}
+	@include media(md) {
+		--gap: 3rem;
+	}
+	@include media(lg) {
+		--gap: 4rem;
+	}
+}
+
+[mobile] {
+	@include media(md) {
+		display: none;
+	}
+}
+.bg {
+	&-main {
+		background: var(--screen-gradient);
+	}
+	&-pets {
+		background: var(--clr-light-xl);
+	}
 }

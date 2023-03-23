@@ -1,0 +1,20 @@
+@use '../absttracts/' as *;
+.logo {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	&__title {
+		@extend %logo;
+		color: var(--clr-primary);
+	}
+	&__subtitle {
+		@extend %logo-sm;
+		color: var(--clr-light-xl);
+	}
+	&.pets &__title {
+		color: var(--clr-dark-l);
+	}
+	&.pets &__subtitle {
+		color: var(--clr-dark-l);
+	}
+}

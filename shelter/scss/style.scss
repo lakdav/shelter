@@ -1,1 +1,6 @@
-@use './base/reset';
+@use 'base/reset';
+@use './base/base';
+@use './layout/header';
+@use './components/logo';
+@use './components/toggle';
+@use './components/navigation';

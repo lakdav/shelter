@@ -1,0 +1,10 @@
+.header {
+	--p: 3rem;
+
+	&-layout {
+		padding-block: var(--p);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
