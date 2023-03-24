@@ -1,0 +1,11 @@
+.our_friends {
+	padding-block: 4.2rem;
+	padding-inline: 1.5rem;
+	background-color: var(--clr-light-l);
+	&__layout {
+		display: flex;
+		flex-direction: column;
+		gap: 4.2rem;
+		align-items: center;
+	}
+}

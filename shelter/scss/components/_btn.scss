@@ -3,17 +3,15 @@
 	background-color: var(--clr-primary);
 	color: var(--clr-dark-3xl);
 	border: 1px solid transparent;
-	letter-spacing: 0.06em;
 	line-height: 130%;
 	font-size: 17px;
 	padding: 1.5rem 4.5rem;
 	border-radius: 10rem;
 	transition: background-color 0.225s, border 0.225s;
 	font-family: 'Noto Serif Georgian', serif;
-	&:hover {
-		background-color: var(--clr-primary-light);
-	}
+	white-space: nowrap;
 	@include hover {
+		background-color: var(--clr-primary-light);
 		cursor: pointer;
 	}
 	&:focus {
@@ -22,9 +20,30 @@
 	&.outlined {
 		background-color: var(--clr-light-xl);
 		border: 1px solid var(--clr-primary);
-		&:hover {
+		@include hover {
+			cursor: pointer;
 			background-color: var(--clr-primary-light);
 			border: 1px solid transparent;
+		}
+		&.action {
+			padding: 0;
+			width: 5.2rem;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			svg {
+				fill: #292929;
+				max-width: 1.4rem;
+			}
+			&:disabled {
+				color: var(--clr-dark-s);
+				border: 1px solid var(--clr-dark-s);
+				svg {
+					fill: var(--clr-dark-s) !important;
+				}
+			}
 		}
 	}
 }

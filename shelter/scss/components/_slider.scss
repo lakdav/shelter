@@ -1,0 +1,11 @@
+.slider {
+	&__action {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: space-between;
+		padding-inline: 4.3rem;
+	}
+	&__next {
+		transform: rotate(180deg);
+	}
+}
