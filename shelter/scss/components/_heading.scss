@@ -1,0 +1,12 @@
+@use '../absttracts/' as *;
+.heading {
+	max-width: 28rem;
+	color: var(--clr-dark-l);
+	font-weight: 400;
+	letter-spacing: 0.06em;
+	text-align: center;
+	@extend %h3-mobile;
+	&.white {
+		color: var(--clr-light-xl);
+	}
+}

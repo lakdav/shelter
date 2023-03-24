@@ -1,8 +1,8 @@
 .header {
-	--p: 3rem;
-
+	--pb: 3rem;
 	&-layout {
-		padding-block: var(--p);
+		padding-block: var(--pb);
+		padding-inline: 1rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

@@ -36,6 +36,18 @@ ul {
   list-style: none;
 }
 
+.heading {
+  font-size: 2.5rem;
+  line-height: 1.3;
+  letter-spacing: 6%;
+}
+
+.paragraph {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
 .navigation__link {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 3.2rem;
@@ -77,12 +89,12 @@ body {
 }
 
 .grid {
-  --gap: 2rem;
+  --gap: 1rem;
   display: grid;
-  grid-template-columns: auto var(--gap) [content] minmax(0, calc(128rem - var(--p) * 2)) [content] var(--gap) auto;
+  grid-template-columns: auto var(--gap) [content-start] minmax(0, calc(128rem - var(--gap) * 2)) [content-end] var(--gap) auto;
 }
 .grid > * {
-  grid-area: content;
+  grid-column: content-start/content-end;
 }
 @media screen and (min-width: 768px) {
   .grid {
@@ -108,11 +120,16 @@ body {
   background: var(--clr-light-xl);
 }
 
+.mx-46 {
+  max-width: 46rem;
+}
+
 .header {
-  --p: 3rem;
+  --pb: 3rem;
 }
 .header-layout {
-  padding-block: var(--p);
+  padding-block: var(--pb);
+  padding-inline: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -222,6 +239,117 @@ body {
   .navigation.pets .navigation__link:hover {
     color: var(--clr-dark-3xl);
   }
+}
+
+.heading {
+  max-width: 28rem;
+  color: var(--clr-dark-l);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+.heading.white {
+  color: var(--clr-light-xl);
+}
+
+.paragraph {
+  color: var(--clr-dark-xl);
+  text-align: center;
+}
+.paragraph.white {
+  color: var(--clr-dark-s);
+}
+.paragraph.justify {
+  text-align: justify;
+  color: var(--clr-dark-xl);
+}
+@media screen and (min-width: 768px) {
+  .paragraph.justify {
+    text-align: left;
+  }
+}
+
+.btn {
+  background-color: var(--clr-primary);
+  color: var(--clr-dark-3xl);
+  border: 1px solid transparent;
+  letter-spacing: 0.06em;
+  line-height: 130%;
+  font-size: 17px;
+  padding: 1.5rem 4.5rem;
+  border-radius: 10rem;
+  transition: background-color 0.225s, border 0.225s;
+  font-family: "Noto Serif Georgian", serif;
+}
+.btn:hover {
+  background-color: var(--clr-primary-light);
+}
+@media screen and (hover: hover) {
+  .btn:hover {
+    cursor: pointer;
+  }
+}
+.btn:focus {
+  outline: none;
+}
+.btn.outlined {
+  background-color: var(--clr-light-xl);
+  border: 1px solid var(--clr-primary);
+}
+.btn.outlined:hover {
+  background-color: var(--clr-primary-light);
+  border: 1px solid transparent;
+}
+
+.not_only__layout {
+  padding-block: 3rem;
+  min-height: 70.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.2rem;
+  background-image: url(../assets/puppy-sm-min.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+@media screen and (min-width: 768px) {
+  .not_only__layout {
+    background-image: url(../assets/puppy-md-min.png);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .not_only__layout {
+    background-image: url(../assets/puppy-lg-min.png);
+  }
+}
+
+.about {
+  padding: 4.2rem 1.5rem 4.25rem;
+  background-color: var(--clr-light-xl);
+}
+.about__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.5rem;
+}
+.about__content {
+  display: flex;
+  flex-direction: column;
+}
+.about__decor {
+  height: clamp(35.36rem, 100vw, 40.8rem);
+  width: 100%;
+  max-width: 26rem;
+  background-image: url(../assets/about-pets-min.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.about__title {
+  margin-bottom: 2.5rem;
+}
+.about__paragraph {
+  margin-bottom: 2.2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

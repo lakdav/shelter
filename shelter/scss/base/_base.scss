@@ -21,11 +21,13 @@ body {
 }
 
 .grid {
-	--gap: 2rem;
+	--gap: 1rem;
 	display: grid;
-	grid-template-columns: auto var(--gap) [content] minmax(0, calc(128rem - (var(--p) * 2))) [content] var(--gap) auto;
+	grid-template-columns:
+		auto var(--gap) [content-start] minmax(0, calc(128rem - (var(--gap) * 2))) [content-end] var(--gap)
+		auto;
 	& > * {
-		grid-area: content;
+		grid-column: content-start / content-end;
 	}
 	@include media(md) {
 		--gap: 3rem;
@@ -47,4 +49,7 @@ body {
 	&-pets {
 		background: var(--clr-light-xl);
 	}
+}
+.mx-46 {
+	max-width: 46rem;
 }

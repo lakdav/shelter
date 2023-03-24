@@ -14,29 +14,75 @@
 </head>
 
 <body>
-    <header class="grid header bg-main">
-        <div class="header-layout ">
-            <a href="" class="logo">
-                <span class="logo__title">Cozy House</span>
-                <span class="logo__subtitle">Shelter for pets in Boston</span>
-            </a>
-            <nav id="navigation" aria-label="main navigation" class="navigation">
-                <ul class="navigation__list">
-                    <li class="navigation__item"><a href="./" class="navigation__link active">About the shelter</a></li>
-                    <li class="navigation__item"><a href="./pets.html" class="navigation__link">Our pets</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link">Help the shelter</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link">Contacts </a></li>
-                </ul>
-            </nav>
-            <button mobile id="toggle-nav" class="toggle-nav" aria-controls="navigation" aria-expanded="false"
-                aria-hiden="false">
-                <svg>
-                    <use xlink:href="./assets/stripe.svg#menu" />
-                </svg>
-            </button>
+    <div class="bg-main">
+        <header class="grid header">
+            <div class="header-layout ">
+                <a href="" class="logo">
+                    <span class="logo__title">Cozy House</span>
+                    <span class="logo__subtitle">Shelter for pets in Boston</span>
+                </a>
+                <nav id="navigation" aria-label="main navigation" class="navigation">
+                    <ul class="navigation__list">
+                        <li class="navigation__item"><a href="./" class="navigation__link active">About the shelter</a>
+                        </li>
+                        <li class="navigation__item"><a href="./pets.html" class="navigation__link">Our pets</a></li>
+                        <li class="navigation__item"><a href="" class="navigation__link">Help the shelter</a></li>
+                        <li class="navigation__item"><a href="" class="navigation__link">Contacts </a></li>
+                    </ul>
+                </nav>
+                <button mobile id="toggle-nav" class="toggle-nav" aria-controls="navigation" aria-expanded="false"
+                    aria-hiden="false">
+                    <svg>
+                        <use xlink:href="./assets/stripe.svg#menu" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <section id="not_only" class="grid not_only">
+            <div class="not_only__layout">
+                <h1 class="heading white ">Not only people
+                    need a house
+                </h1>
+                <p class="paragraph white mx-46">We offer to give a chance to a little and nice puppy with an extremely
+                    wide
+                    and open heart. He or
+                    she will love you more than anybody else in the world, you will see!</p>
+                <button class="btn ">Make a friend</button>
+            </div>
+        </section>
+    </div>
+    <section id="about" class="grid about">
+        <div class="about__layout">
+            <div class="about__content">
+                <h2 class="heading about__title">About the shelter
+                    “Cozy House”
+                </h2>
+                <p class="paragraph justify about__paragraph">Currently we have 121 dogs and 342 cats on our hands and
+                    statistics show
+                    that
+                    only 20%
+                    of them will find a family. The others will continue to live with us and will be waiting for a lucky
+                    chance to become dearly loved.</p>
+                <p class="paragraph justify">We feed our wards with the best food and make sure that they do not get
+                    sick,
+                    feel
+                    comfortable (including psychologically) and well. We are supported by 87 volunteers and 28 employees
+                    of
+                    various skill levels. About 12% of the animals are taken by the shelter staff. Taking care of the
+                    animals, they become attached to the pets and would hardly ever leave them alone.</p>
+            </div>
+            <div class="about__decor"></div>
         </div>
+    </section>
 
-    </header>
+    <section id="our_friends" class="grid our_friends">
+        <div class="our_friends__layout">
+            <h2 class="heading">Our friends who
+                are looking for a house</h2>
+            <div class="our_friends__slider slider"></div>
+            <button class="btn">Get to know the rest</button>
+        </div>
+    </section>
     <script src="./js/index.js">
     </script>
 </body>
