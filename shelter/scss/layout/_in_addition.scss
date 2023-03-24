@@ -1,0 +1,78 @@
+// fill="#292929"
+.in_addition {
+	padding: 4.2rem 1rem;
+	background-color: var(--clr-light-l);
+	&__layout {
+		display: grid;
+		width: 100%;
+		grid-template-columns: minmax(0, 38rem);
+		justify-content: center;
+		gap: 4.2rem;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		& h3 {
+			color: var(--clr-dark-l);
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 160%;
+			letter-spacing: 0;
+
+			text-align: center;
+		}
+	}
+	&__donation {
+		display: flex;
+		align-items: center;
+		background-color: var(--clr-primary);
+		padding: 1rem 1.5rem;
+		border-radius: 9px;
+		gap: 1.5rem;
+		button {
+			max-width: 3.4rem;
+			height: 2.3rem;
+			border: none;
+			background-color: transparent;
+		}
+		&-inputs {
+			margin-bottom: -4px;
+			font-size: 1.5rem;
+			display: grid;
+			grid-template-columns: repeat(4, 4ch);
+			gap: 1rem;
+			& input {
+				font-size: inherit;
+				padding: 0;
+				line-height: 1;
+				border: none;
+				outline: none;
+				background-color: transparent;
+			}
+		}
+	}
+	&__text {
+		padding: 0 1px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-style: italic;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 18px;
+		color: var(--clr-dark-m);
+		text-align: justify;
+	}
+	&__decor {
+		width: 100%;
+		aspect-ratio: 1 / 0.52;
+
+		background-image: url(../assets/donation-dog-sm-min.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
