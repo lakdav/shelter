@@ -1,0 +1,32 @@
+.help {
+	padding: 4.2rem 0.5rem;
+	&__layout {
+		display: flex;
+		gap: 4.2rem;
+		flex-direction: column;
+	}
+	&__content {
+		display: grid;
+		margin-inline: auto;
+		grid-template-columns: minmax(0, 13rem) minmax(0, 13rem);
+		gap: 3rem;
+	}
+
+	&__item-link {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+		align-items: center;
+		img {
+			max-width: 5rem;
+		}
+		h3 {
+			font-style: normal;
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 110%;
+			color: var(--clr-dark-l);
+		}
+	}
+}

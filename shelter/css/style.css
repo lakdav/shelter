@@ -431,4 +431,36 @@ body {
   line-height: 23px;
 }
 
+.help {
+  padding: 4.2rem 0.5rem;
+}
+.help__layout {
+  display: flex;
+  gap: 4.2rem;
+  flex-direction: column;
+}
+.help__content {
+  display: grid;
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 13rem);
+  gap: 3rem;
+}
+.help__item-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+}
+.help__item-link img {
+  max-width: 5rem;
+}
+.help__item-link h3 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 110%;
+  color: var(--clr-dark-l);
+}
+
 /*# sourceMappingURL=style.css.map */
