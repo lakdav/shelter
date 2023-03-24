@@ -79,7 +79,7 @@ ul {
   --clr-primary: #f1cdb3;
   --clr-primary-light: #fddcc4;
   --screen-gradient: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
-  --footer-gradient: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
+  --footer-gradient: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
 }
 
 body {
@@ -535,6 +535,52 @@ body {
   width: 100%;
   aspect-ratio: 1/0.52;
   background-image: url(../assets/donation-dog-sm-min.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer {
+  background-image: var(--footer-gradient);
+  padding-top: 3rem;
+}
+.footer__layout {
+  display: grid;
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 30rem);
+  gap: 4.5rem;
+}
+.footer a {
+  color: var(--clr-primary);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+}
+.footer__wait, .footer__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+.footer__contact span svg {
+  max-width: 4rem;
+  max-height: 3.2rem;
+}
+.footer__wait a {
+  align-self: start;
+}
+.footer__wait span svg {
+  width: 2.2rem;
+  height: 3.2rem;
+}
+.footer__decor {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 1/1.04;
+  background-image: url(../assets/footer-puppy.png);
   background-repeat: no-repeat;
   background-size: cover;
 }

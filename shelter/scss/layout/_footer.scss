@@ -1,0 +1,54 @@
+.footer {
+	background-image: var(--footer-gradient);
+	padding-top: 3rem;
+	&__layout {
+		display: grid;
+		margin-inline: auto;
+		grid-template-columns: minmax(0, 30rem);
+		gap: 4.5rem;
+	}
+	& a {
+		color: var(--clr-primary);
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 115%;
+	}
+	&__wait,
+	&__contact {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4rem;
+	}
+	&__contact {
+		& span {
+			svg {
+				max-width: 4rem;
+				max-height: 3.2rem;
+			}
+		}
+	}
+	&__wait {
+		a {
+			align-self: start;
+		}
+		& span {
+			svg {
+				width: 2.2rem;
+				height: 3.2rem;
+			}
+		}
+	}
+	&__decor {
+		margin-inline: auto;
+		width: 100%;
+		max-width: 26rem;
+		aspect-ratio: 1 / 1.04;
+		background-image: url(../assets/footer-puppy.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
