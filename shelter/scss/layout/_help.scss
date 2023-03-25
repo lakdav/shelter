@@ -1,32 +1,55 @@
+@use '../absttracts/' as *;
 .help {
 	padding: 4.2rem 0.5rem;
+	@include media(md) {
+		padding-block: 8rem 10rem;
+	}
 	&__layout {
 		display: flex;
 		gap: 4.2rem;
 		flex-direction: column;
+		@include media(md) {
+			gap: 6rem;
+		}
 	}
 	&__content {
-		display: grid;
-		margin-inline: auto;
-		grid-template-columns: minmax(0, 13rem) minmax(0, 13rem);
-		gap: 3rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		@include media(md) {
+			gap: 5.7rem 12rem;
+		}
 	}
-
+	&__item {
+		@include media(lg) {
+		}
+	}
 	&__item-link {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
 		width: 100%;
 		align-items: center;
+		@include media(md) {
+			gap: 3rem;
+		}
 		img {
 			max-width: 5rem;
+			@include media(md) {
+				max-width: 6rem;
+			}
 		}
 		h3 {
 			font-style: normal;
 			font-weight: 400;
 			font-size: 15px;
 			line-height: 110%;
+			letter-spacing: 0.06em;
 			color: var(--clr-dark-l);
+			@include media(md) {
+				font-size: 20px;
+				list-style: 23px;
+			}
 		}
 	}
 }

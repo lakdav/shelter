@@ -1,11 +1,32 @@
+@use '../absttracts/' as *;
 .slider {
+	z-index: 0;
 	&__action {
 		margin-top: 2rem;
 		display: flex;
 		justify-content: space-between;
 		padding-inline: 4.3rem;
+		@include media(md) {
+			position: absolute;
+			width: 100%;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			padding-inline: 0;
+			z-index: -1;
+		}
 	}
 	&__next {
 		transform: rotate(180deg);
+	}
+	&__content {
+		@include media(lg) {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			justify-content: space-between;
+			gap: 9rem;
+		}
+	}
+	&__item {
 	}
 }

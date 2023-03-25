@@ -1,6 +1,7 @@
 .footer {
+	--pt: 3rem;
 	background-image: var(--footer-gradient);
-	padding-top: 3rem;
+	padding-top: var(--pt);
 	&__layout {
 		display: grid;
 		margin-inline: auto;

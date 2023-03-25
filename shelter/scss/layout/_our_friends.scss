@@ -1,11 +1,20 @@
+@use '../absttracts/' as *;
 .our_friends {
 	padding-block: 4.2rem;
 	padding-inline: 1.5rem;
 	background-color: var(--clr-light-l);
+
+	@include media(md) {
+		padding-block: 8rem 10rem;
+	}
+
 	&__layout {
 		display: flex;
 		flex-direction: column;
 		gap: 4.2rem;
 		align-items: center;
+		@include media(md) {
+			gap: 6rem;
+		}
 	}
 }

@@ -28,6 +28,7 @@ body {
 		auto;
 	& > * {
 		grid-column: content-start / content-end;
+		position: relative;
 	}
 	@include media(md) {
 		--gap: 3rem;
