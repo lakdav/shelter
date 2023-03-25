@@ -24,15 +24,18 @@
 		display: flex;
 		flex-direction: column;
 		gap: 4rem;
+		margin-bottom: 4px;
 		align-items: center;
 		@include media(md) {
 			flex-direction: row;
+			gap: 3.5rem;
 		}
 	}
 	&__link {
 		color: var(--clr-dark-s);
 		transition: color 0.3s;
 		position: relative;
+		letter-spacing: 0.05px;
 		&.active {
 			color: var(--clr-light-s);
 			&::before {
@@ -42,7 +45,7 @@
 				width: 100%;
 				height: 3px;
 				left: 0;
-				top: 110%;
+				top: 125%;
 				background-color: var(--clr-primary);
 			}
 		}

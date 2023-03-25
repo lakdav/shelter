@@ -10,6 +10,7 @@
 	&__subtitle {
 		@extend %logo-sm;
 		color: var(--clr-light-xl);
+		padding-left: 4px;
 	}
 	&.pets &__title {
 		color: var(--clr-dark-l);
