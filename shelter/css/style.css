@@ -596,12 +596,23 @@ body {
   padding: 4.2rem 1rem;
   background-color: var(--clr-light-l);
 }
+@media screen and (min-width: 768px) {
+  .in_addition {
+    padding: 8rem 1rem 10rem;
+  }
+}
 .in_addition__layout {
   display: grid;
   width: 100%;
   grid-template-columns: minmax(0, 38rem);
   justify-content: center;
   gap: 4.2rem;
+}
+@media screen and (min-width: 1280px) {
+  .in_addition__layout {
+    grid-template-columns: minmax(0, 50.5rem) minmax(0, 38rem);
+    gap: 3rem;
+  }
 }
 .in_addition__content {
   display: flex;
@@ -612,22 +623,37 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  cursor: pointer;
 }
-.in_addition__form h3 {
+.in_addition__form-title {
   color: var(--clr-dark-l);
   font-weight: 400;
   font-size: 15px;
   line-height: 160%;
   letter-spacing: 0;
   text-align: center;
+  letter-spacing: 0.06em;
+}
+@media screen and (min-width: 1280px) {
+  .in_addition__form-title {
+    text-align: left;
+    line-height: 110%;
+  }
 }
 .in_addition__donation {
   display: flex;
   align-items: center;
   background-color: var(--clr-primary);
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.3rem;
   border-radius: 9px;
   gap: 1.5rem;
+  max-width: 28.1rem;
+}
+@media screen and (min-width: 1280px) {
+  .in_addition__donation {
+    align-items: flex-start;
+    max-width: 34.9rem;
+  }
 }
 .in_addition__donation button {
   max-width: 3.4rem;
@@ -635,20 +661,50 @@ body {
   border: none;
   background-color: transparent;
 }
+.in_addition__donation:hover .in_addition__donation-placeholder {
+  display: none;
+}
+.in_addition__donation:hover .in_addition__donation-inputs {
+  display: grid;
+}
+.in_addition__donation:focus-within .in_addition__donation-placeholder, .in_addition__donation:focus-visible .in_addition__donation-placeholder {
+  display: none;
+}
+.in_addition__donation:focus-within .in_addition__donation-inputs, .in_addition__donation:focus-visible .in_addition__donation-inputs {
+  display: grid;
+}
+.in_addition__donation-placeholder {
+  letter-spacing: 1.1px;
+}
+@media screen and (min-width: 1280px) {
+  .in_addition__donation-placeholder {
+    font-size: 20px;
+    line-height: 115%;
+  }
+}
 .in_addition__donation-inputs {
   margin-bottom: -4px;
   font-size: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(4, 4ch);
+  display: none;
   gap: 1rem;
+}
+@media screen and (min-width: 1280px) {
+  .in_addition__donation-inputs {
+    grid-template-columns: repeat(5, 5ch);
+  }
 }
 .in_addition__donation-inputs input {
   font-size: inherit;
-  padding: 0;
   line-height: 1;
   border: none;
   outline: none;
   background-color: transparent;
+}
+@media screen and (min-width: 1280px) {
+  .in_addition__donation-inputs input {
+    font-size: 20px;
+    line-height: 115%;
+  }
 }
 .in_addition__text {
   padding: 0 1px;
@@ -660,12 +716,29 @@ body {
   color: var(--clr-dark-m);
   text-align: justify;
 }
+@media screen and (min-width: 1280px) {
+  .in_addition__text {
+    text-align: left;
+  }
+}
 .in_addition__decor {
   width: 100%;
   aspect-ratio: 1/0.52;
   background-image: url(../assets/donation-dog-sm-min.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+}
+@media screen and (min-width: 768px) {
+  .in_addition__decor {
+    background-image: url(../assets/donation-dog-md-min.png);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .in_addition__decor {
+    background-image: url(../assets/donation-dog-lg-min.png);
+    order: -1;
+    transform: translateY(10px);
+  }
 }
 
 .footer {
