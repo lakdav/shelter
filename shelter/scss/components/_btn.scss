@@ -5,11 +5,12 @@
 	border: 1px solid transparent;
 	line-height: 130%;
 	font-size: 17px;
-	padding: 1.5rem 4.5rem;
+	padding: 1.4rem 4.5rem;
 	border-radius: 10rem;
 	transition: background-color 0.225s, border 0.225s;
 	font-family: 'Noto Serif Georgian', serif;
 	white-space: nowrap;
+	letter-spacing: 0.093em;
 	@include hover {
 		background-color: var(--clr-primary-light);
 		cursor: pointer;
