@@ -38,7 +38,7 @@ body {
 	}
 }
 
-[mobile] {
+.mobile {
 	@include media(md) {
 		display: none;
 	}

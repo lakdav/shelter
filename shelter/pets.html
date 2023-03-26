@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/fonts/font.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Our pets</title>
 </head>
 
 <body>
     <header class="grid header bg-pets">
         <div class="header-layout ">
-            <a href="" class="logo pets">
+            <a href="./" class="logo pets">
                 <span class="logo__title">Cozy House</span>
                 <span class="logo__subtitle">Shelter for pets in Boston</span>
             </a>
@@ -21,13 +22,13 @@
                 <ul class="navigation__list">
                     <li class="navigation__item"><a href="./" class="navigation__link">About the shelter</a>
                     </li>
-                    <li class="navigation__item"><a href="./pets.html" class="navigation__link active">Our pets</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link">Help the shelter</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link">Contacts </a></li>
+                    <li class="navigation__item"><a href="#!" class="navigation__link active">Our pets</a></li>
+                    <li class="navigation__item"><a href="./#help" class="navigation__link">Help the shelter</a></li>
+                    <li class="navigation__item"><a href="./pets.html#footer" class="navigation__link">Contacts </a>
+                    </li>
                 </ul>
             </nav>
-            <button mobile id="toggle-nav" class="toggle-nav" aria-controls="navigation" aria-expanded="false"
-                aria-hiden="false">
+            <button id="toggle-nav" class="toggle-nav mobile" aria-controls="navigation" aria-expanded="false">
                 <svg>
                     <use xlink:href="./assets/stripe.svg#menu" />
                 </svg>
@@ -48,7 +49,7 @@
             </div>
         </section>
     </main>
-    <footer class=" grid footer">
+    <footer id="footer" class="grid footer">
         <div class="footer__layout">
             <div class="footer__contact">
                 <h2 class="heading h2 white right">For questions <br> and suggestions</h2>

@@ -47,7 +47,7 @@
 		background-color: var(--clr-primary);
 		padding: 1rem 1.3rem;
 		border-radius: 9px;
-		gap: 1.5rem;
+		gap: 1.3rem;
 		max-width: 28.1rem;
 		@include media(lg) {
 			align-items: flex-start;
@@ -76,7 +76,7 @@
 			}
 		}
 		&-placeholder {
-			letter-spacing: 1.1px;
+			letter-spacing: 1.2px;
 			color: #545454;
 			@include media(lg) {
 				font-size: 20px;
