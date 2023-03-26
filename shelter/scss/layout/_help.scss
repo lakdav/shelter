@@ -2,14 +2,14 @@
 .help {
 	padding: 4.2rem 0.5rem;
 	@include media(md) {
-		padding-block: 8rem 10rem;
+		padding-block: 8rem 10.3rem;
 	}
 	&__layout {
 		display: flex;
 		gap: 4.2rem;
 		flex-direction: column;
 		@include media(md) {
-			gap: 6rem;
+			gap: 5.7rem;
 		}
 	}
 	&__content {
