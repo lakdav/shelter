@@ -1,20 +1,43 @@
 @use '../absttracts/' as *;
 .our_friends {
-	padding-block: 4.2rem;
-	padding-inline: 1.5rem;
-	background-color: var(--clr-light-l);
+	&.main {
+		padding-block: 4.2rem;
+		padding-inline: 1.5rem;
+		background-color: var(--clr-light-l);
 
-	@include media(md) {
-		padding-block: 8rem 10rem;
+		@include media(md) {
+			padding-block: 8rem 10rem;
+		}
 	}
 
-	&__layout {
+	&__layout.main {
 		display: flex;
 		flex-direction: column;
 		gap: 4.2rem;
 		align-items: center;
 		@include media(md) {
 			gap: 6rem;
+		}
+	}
+	&.pets {
+		padding-block: 4.2rem;
+		@include media(md) {
+			padding-block: 8rem 7.6rem;
+		}
+		@include media(lg) {
+			padding-block: 8rem 10rem;
+		}
+	}
+	&__layout.pets {
+		display: grid;
+		padding-block: 4.2rem;
+		@include media(md) {
+			padding-block: 3rem 4rem;
+		}
+		@include media(lg) {
+			padding-block: 4.5rem 6rem;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 3rem 4rem;
 		}
 	}
 }

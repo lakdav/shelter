@@ -1,12 +1,23 @@
+@use '../absttracts/' as *;
 .footer {
 	--pt: 3rem;
 	background-image: var(--footer-gradient);
 	padding-top: var(--pt);
+	@include media(lg) {
+		--pt: 0;
+	}
 	&__layout {
 		display: grid;
 		margin-inline: auto;
 		grid-template-columns: minmax(0, 30rem);
 		gap: 4.5rem;
+		@include media(lg) {
+			width: 100%;
+			min-height: 35rem;
+			grid-template-columns: 1fr 1fr 1fr;
+			align-items: center;
+			gap: 11.5rem;
+		}
 	}
 	& a {
 		color: var(--clr-primary);
@@ -16,13 +27,22 @@
 		font-weight: 400;
 		font-size: 20px;
 		line-height: 115%;
+		transition: color 0.3s;
+		@include hover {
+			color: var(--clr-primary-light);
+		}
 	}
 	&__wait,
 	&__contact {
+		letter-spacing: 1.224px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 4rem;
+		font-family: 'Georgia' serif;
+		@include media(lg) {
+			align-items: start;
+		}
 	}
 	&__contact {
 		& span {
@@ -31,10 +51,24 @@
 				max-height: 3.2rem;
 			}
 		}
+		&-tel {
+			display: flex;
+		}
 	}
 	&__wait {
+		@include media(lg) {
+			transform: translateY(6px);
+		}
 		a {
 			align-self: start;
+			@include media(lg) {
+				transform: translateY(-6px);
+			}
+			&:nth-child(3) {
+				@include media(lg) {
+					transform: translateY(-16px);
+				}
+			}
 		}
 		& span {
 			svg {
@@ -51,5 +85,10 @@
 		background-image: url(../assets/footer-puppy.png);
 		background-repeat: no-repeat;
 		background-size: cover;
+		@include media(lg) {
+			max-width: 30rem;
+			align-self: end;
+			transform: translateX(12px);
+		}
 	}
 }

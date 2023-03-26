@@ -34,6 +34,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+
 			svg {
 				fill: #292929;
 				max-width: 1.4rem;
@@ -41,6 +42,10 @@
 			&:disabled {
 				color: var(--clr-dark-s);
 				border: 1px solid var(--clr-dark-s);
+				@include hover {
+					cursor: not-allowed;
+					background-color: white;
+				}
 				svg {
 					fill: var(--clr-dark-s) !important;
 				}

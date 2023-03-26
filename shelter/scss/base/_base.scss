@@ -49,6 +49,9 @@ body {
 	}
 	&-pets {
 		background: var(--clr-light-xl);
+		&.friends {
+			background: var(--clr-light-l);
+		}
 	}
 }
 .mx-46 {
