@@ -36,6 +36,11 @@
 			justify-content: center;
 			font-size: 2rem;
 			background-color: transparent;
+			@include hover {
+				cursor: pointer;
+				background-color: var(--clr-primary-light);
+				border: 2px solid transparent;
+			}
 			svg {
 				fill: #292929;
 				max-width: 1.4rem;

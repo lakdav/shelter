@@ -63,7 +63,7 @@
 		a {
 			align-self: start;
 			@include media(lg) {
-				transform: translateY(-6px);
+				transform: translateY(-8px);
 			}
 
 			&:nth-child(3) {

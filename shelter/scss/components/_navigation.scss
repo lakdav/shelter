@@ -61,6 +61,11 @@
 	}
 	&.pets &__link {
 		color: var(--clr-dark-l);
+		&.active {
+			@include hover {
+				color: var(--clr-dark-l);
+			}
+		}
 		&.active::before {
 			background-color: var(--clr-primary);
 		}

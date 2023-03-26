@@ -17,7 +17,7 @@
 	@media screen and (hover: hover) {
 		&:hover &__btn {
 			background-color: var(--clr-primary-light);
-			border: 1px solid transparent;
+			border: 2px solid transparent;
 		}
 	}
 	&__image {
