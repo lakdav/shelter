@@ -20,11 +20,11 @@
 	}
 	&.outlined {
 		background-color: var(--clr-light-xl);
-		border: 1px solid var(--clr-primary);
+		border: 2px solid var(--clr-primary);
 		@include hover {
 			cursor: pointer;
 			background-color: var(--clr-primary-light);
-			border: 1px solid transparent;
+			border: 2px solid transparent;
 		}
 		&.action {
 			padding: 0;
@@ -34,14 +34,18 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-
+			font-size: 2rem;
+			background-color: transparent;
 			svg {
 				fill: #292929;
 				max-width: 1.4rem;
 			}
+			&.active {
+				background-color: var(--clr-primary);
+			}
 			&:disabled {
 				color: var(--clr-dark-s);
-				border: 1px solid var(--clr-dark-s);
+				border: 2px solid var(--clr-dark-s);
 				@include hover {
 					cursor: not-allowed;
 					background-color: white;

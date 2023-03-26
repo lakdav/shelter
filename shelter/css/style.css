@@ -322,13 +322,13 @@ body {
 }
 .btn.outlined {
   background-color: var(--clr-light-xl);
-  border: 1px solid var(--clr-primary);
+  border: 2px solid var(--clr-primary);
 }
 @media screen and (hover: hover) {
   .btn.outlined:hover {
     cursor: pointer;
     background-color: var(--clr-primary-light);
-    border: 1px solid transparent;
+    border: 2px solid transparent;
   }
 }
 .btn.outlined.action {
@@ -339,14 +339,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
+  background-color: transparent;
 }
 .btn.outlined.action svg {
   fill: #292929;
   max-width: 1.4rem;
 }
+.btn.outlined.action.active {
+  background-color: var(--clr-primary);
+}
 .btn.outlined.action:disabled {
   color: var(--clr-dark-s);
-  border: 1px solid var(--clr-dark-s);
+  border: 2px solid var(--clr-dark-s);
 }
 @media screen and (hover: hover) {
   .btn.outlined.action:disabled:hover {
@@ -470,9 +475,6 @@ body {
     gap: 6rem;
   }
 }
-.our_friends.pets {
-  padding-block: 4.2rem;
-}
 @media screen and (min-width: 768px) {
   .our_friends.pets {
     padding-block: 8rem 7.6rem;
@@ -480,23 +482,37 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .our_friends.pets {
-    padding-block: 8rem 10rem;
+    padding-block: 8.1rem 10.1rem;
   }
 }
 .our_friends__layout.pets {
   display: grid;
-  padding-block: 4.2rem;
+  margin-bottom: 4.2rem;
 }
 @media screen and (min-width: 768px) {
   .our_friends__layout.pets {
-    padding-block: 3rem 4rem;
+    margin-bottom: 4rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .our_friends__layout.pets {
-    padding-block: 4.5rem 6rem;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem 4rem;
+    margin-bottom: 5.9rem;
+  }
+}
+
+.pets__heading {
+  margin-bottom: 4.2rem;
+}
+@media screen and (min-width: 768px) {
+  .pets__heading {
+    margin-bottom: 3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .pets__heading {
+    margin-bottom: 5.8rem;
   }
 }
 
@@ -636,7 +652,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .in_addition {
-    padding: 8rem 1rem 10rem;
+    padding: 7.8rem 1rem 10rem;
   }
 }
 .in_addition__layout {
@@ -660,7 +676,7 @@ body {
 .in_addition__form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.9rem;
   cursor: pointer;
 }
 .in_addition__form-title {
@@ -713,6 +729,7 @@ body {
 }
 .in_addition__donation-placeholder {
   letter-spacing: 1.1px;
+  color: #545454;
 }
 @media screen and (min-width: 1280px) {
   .in_addition__donation-placeholder {
@@ -780,6 +797,7 @@ body {
 }
 
 .footer {
+  overflow: hidden;
   --pt: 3rem;
   background-image: var(--footer-gradient);
   padding-top: var(--pt);
@@ -854,7 +872,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .footer__wait a:nth-child(3) {
-    transform: translateY(-16px);
+    transform: translateY(-15px);
   }
 }
 .footer__wait span svg {
@@ -872,9 +890,20 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .footer__decor {
-    max-width: 30rem;
+    max-width: 29.9rem;
     align-self: end;
-    transform: translateX(12px);
+    transform: translate(11.4px, 1px);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .pagination {
+    gap: 2rem;
   }
 }
 

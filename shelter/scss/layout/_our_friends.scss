@@ -19,25 +19,34 @@
 			gap: 6rem;
 		}
 	}
+
 	&.pets {
-		padding-block: 4.2rem;
 		@include media(md) {
 			padding-block: 8rem 7.6rem;
 		}
 		@include media(lg) {
-			padding-block: 8rem 10rem;
+			padding-block: 8.1rem 10.1rem;
 		}
 	}
 	&__layout.pets {
 		display: grid;
-		padding-block: 4.2rem;
+		margin-bottom: 4.2rem;
 		@include media(md) {
-			padding-block: 3rem 4rem;
+			margin-bottom: 4rem;
 		}
 		@include media(lg) {
-			padding-block: 4.5rem 6rem;
 			grid-template-columns: repeat(4, 1fr);
 			gap: 3rem 4rem;
+			margin-bottom: 5.9rem;
 		}
+	}
+}
+.pets__heading {
+	margin-bottom: 4.2rem;
+	@include media(md) {
+		margin-bottom: 3rem;
+	}
+	@include media(lg) {
+		margin-bottom: 5.8rem;
 	}
 }
