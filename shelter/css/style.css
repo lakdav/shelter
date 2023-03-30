@@ -144,12 +144,19 @@ body {
 
 .header {
   --pb: 3rem;
+  --pi: 1rem;
 }
 .header-layout {
   padding-block: var(--pb);
+  padding-inline: var(--pi);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    --pi: 0;
+  }
 }
 
 .logo {
@@ -268,15 +275,18 @@ body {
 }
 
 .heading {
+  --lts: 0.06em;
   color: var(--clr-dark-l);
   font-weight: 400;
   text-align: center;
+  letter-spacing: var(--lts);
 }
 .heading.white {
   color: var(--clr-light-xl);
 }
 @media screen and (min-width: 768px) {
   .heading.h1 {
+    --lts: 0;
     font-size: 4.4rem;
     line-height: 1.3;
   }
@@ -310,8 +320,10 @@ body {
     text-align: left;
   }
 }
-.paragraph.right {
-  text-align: left;
+@media screen and (min-width: 768px) {
+  .paragraph.right {
+    text-align: left;
+  }
 }
 
 .btn {
@@ -395,16 +407,15 @@ body {
   padding-top: var(--pt);
   padding-bottom: var(--pb);
   min-height: var(--min-h);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4.2rem;
   background-image: url(../assets/puppy-sm-min.png);
   background-repeat: no-repeat;
-  background-position: bottom center;
+  background-position: bottom right;
+  display: flex;
+  justify-content: center;
 }
 @media screen and (min-width: 768px) {
   .not_only__layout {
+    --min-h: 104.5rem;
     background-image: url(../assets/puppy-md-min.png);
   }
 }
@@ -412,10 +423,32 @@ body {
   .not_only__layout {
     --pt: 6 rem;
     --min-h: 78.8rem;
-    align-items: start;
-    justify-content: center;
     background-image: url(../assets/puppy-lg-min.png);
     background-position: right bottom;
+    justify-content: flex-start;
+  }
+}
+.not_only__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.2rem;
+}
+@media screen and (min-width: 768px) {
+  .not_only__content {
+    max-width: 46rem;
+  }
+  .not_only__content .heading {
+    align-self: start;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .not_only__content {
+    --pt: 6 rem;
+    --min-h: 78.8rem;
+    max-width: auto;
+    justify-content: center;
+    align-items: flex-start;
   }
 }
 

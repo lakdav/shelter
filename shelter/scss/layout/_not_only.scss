@@ -7,23 +7,40 @@
 		padding-top: var(--pt);
 		padding-bottom: var(--pb);
 		min-height: var(--min-h);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 4.2rem;
 		background-image: url(../assets/puppy-sm-min.png);
 		background-repeat: no-repeat;
-		background-position: bottom center;
+		background-position: bottom right;
+		display: flex;
+		justify-content: center;
 		@include media(md) {
+			--min-h: 104.5rem;
 			background-image: url(../assets/puppy-md-min.png);
 		}
 		@include media(lg) {
 			--pt: 6 rem;
 			--min-h: 78.8rem;
-			align-items: start;
-			justify-content: center;
 			background-image: url(../assets/puppy-lg-min.png);
 			background-position: right bottom;
+			justify-content: flex-start;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4.2rem;
+		@include media(md) {
+			max-width: 46rem;
+			& .heading {
+				align-self: start;
+			}
+		}
+		@include media(lg) {
+			--pt: 6 rem;
+			--min-h: 78.8rem;
+			max-width: auto;
+			justify-content: center;
+			align-items: flex-start;
 		}
 	}
 }

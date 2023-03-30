@@ -1,9 +1,15 @@
+@use '../absttracts/' as *;
 .header {
 	--pb: 3rem;
+	--pi: 1rem;
 	&-layout {
 		padding-block: var(--pb);
+		padding-inline: var(--pi);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
+	@media screen and (min-width: 768px) {
+		--pi: 0;
 	}
 }
