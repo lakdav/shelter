@@ -1,6 +1,7 @@
 @use '../absttracts/' as *;
 .card {
 	max-width: 27rem;
+	min-width: 27rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

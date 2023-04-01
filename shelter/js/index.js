@@ -1,5 +1,4 @@
 import data from './data.js';
-console.log(data);
 //navigation contro; for mobile
 const navigationMenu = document.getElementById('navigation');
 const navigationToggleBtn = document.getElementById('toggle-nav');
@@ -12,7 +11,10 @@ navigationToggleBtn.addEventListener('click', () => {
 	navigationMenu.classList.toggle('open');
 });
 
+mediaSm.addEventListener('change', (e) => {});
+
 const pets_friends_layout = document.getElementById('pets_layout');
+
 if (pets_friends_layout) {
 	let HTML_STRING = '';
 	for (let i = 0; i < data.length; i++) {

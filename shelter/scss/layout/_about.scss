@@ -36,7 +36,7 @@
 		max-width: 26rem;
 		background-image: url(../assets/about-pets-min.png);
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: contain;
 		@include media(md) {
 			max-width: 30rem;
 		}

@@ -4,6 +4,7 @@
 	color: var(--clr-dark-l);
 	font-weight: 400;
 	text-align: center;
+	white-space: nowrap;
 	@extend %h3-mobile;
 	letter-spacing: var(--lts);
 	&.white {
