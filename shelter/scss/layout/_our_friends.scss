@@ -6,6 +6,7 @@
 		background-color: var(--clr-light-l);
 		@include media(md) {
 			padding-block: 8rem 10rem;
+			padding-inline: 0;
 		}
 	}
 
