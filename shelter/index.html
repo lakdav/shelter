@@ -14,8 +14,8 @@
 <body>
     <div class="bg-main">
         <header class="grid header">
-            <div class="header-layout ">
-                <a href="#!" class="logo">
+            <div class="header__layout ">
+                <a href="#!" class="header__logo logo">
                     <span class="logo__title">Cozy House</span>
                     <span class="logo__subtitle">Shelter for pets in Boston</span>
                 </a>
@@ -38,15 +38,18 @@
         </header>
         <section id="not_only" class="grid not_only">
             <div class="not_only__layout">
-                <h1 class="heading h1 white right">Not only people <br>
-                    need a house
-                </h1>
-                <p class="paragraph white right mx-46">We offer to give a chance to a little and nice puppy with an
-                    extremely
-                    wide
-                    and open heart. He or
-                    she will love you more than anybody else in the world, you will see!</p>
-                <a href="./#our_friends" class="btn ">Make a friend</a>
+                <div class="not_only__content">
+                    <h1 class="heading h1 white right">Not only people <br>
+                        need a house
+                    </h1>
+                    <p class="paragraph white right mx-46">We offer to give a chance to a little and nice puppy with an
+                        extremely
+                        wide
+                        and open heart. He or
+                        she will love you more than anybody else in the world, you will see!</p>
+                    <a href="./#our_friends" class="btn ">Make a friend</a>
+                </div>
+                <div class="not_only__decor"></div>
             </div>
         </section>
     </div>
@@ -81,45 +84,18 @@
             <h2 class="heading h2">Our friends who <br>
                 are looking for a house</h2>
             <div class="our_friends__slider slider">
-                <div class="slider_wrapper">
+                <div class="slider__wrapper">
                     <div class="slider__content">
-                        <div class="slider__item">
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="./assets/pets/pets-katrine-2-min.png" alt="">
-                                </div>
-                                <h2 class="card__name">Katrine</h2>
-                                <button class="card__btn btn outlined">Learn more</button>
-                            </article>
-                        </div>
-                        <div class="slider__item">
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="./assets/pets/pets-jennifer-min.png" alt="">
-                                </div>
-                                <h2 class="card__name">Jennifer</h2>
-                                <button class="card__btn btn outlined">Learn more</button>
-                            </article>
-                        </div>
-                        <div class="slider__item">
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="./assets/pets/pets-woody-min.png" alt="">
-                                </div>
-                                <h2 class="card__name">Woody</h2>
-                                <button class="card__btn btn outlined">Learn more</button>
-                            </article>
-                        </div>
                     </div>
-                    <div class="slider__action">
-                        <button id="prev" class="slider__prev btn outlined action" disabled> <svg>
-                                <use xlink:href="./assets/stripe.svg#arrow" />
-                            </svg></button>
-                        <button id="next" class="slider__next btn outlined action"> <svg>
-                                <use xlink:href="./assets/stripe.svg#arrow" />
-                            </svg>
-                        </button>
-                    </div>
+                </div>
+                <div class="slider__action">
+                    <button id="prev" class="slider__prev btn outlined action"> <svg>
+                            <use xlink:href="./assets/stripe.svg#arrow" />
+                        </svg></button>
+                    <button id="next" class="slider__next btn outlined action"> <svg>
+                            <use xlink:href="./assets/stripe.svg#arrow" />
+                        </svg>
+                    </button>
                 </div>
             </div>
             <a href="./pets.html" class="btn">Get to know the rest</a>
@@ -213,7 +189,7 @@
     <footer id="footer" class="grid footer">
         <div class="footer__layout">
             <div class="footer__contact">
-                <h2 class="heading h2 white right">For questions <br> and suggestions</h2>
+                <h2 class="footer__heading heading h2 white right">For questions and suggestions</h2>
                 <a href="mailto:email@shelter.com "><span><svg>
                             <use xlink:href="./assets/stripe.svg#email" />
                         </svg></span> email@shelter.com</a>
@@ -243,7 +219,7 @@
                 </a>
             </div>
             <div class="footer__wait">
-                <h2 class="heading h2 white right">We are waiting <br> for your visit</h2>
+                <h2 class="footer__heading heading h2 white right">We are waiting for your visit</h2>
                 <a href="https://www.google.com.hk/maps/place/Boston,+MA,+USA/@42.3143286,-71.0403234,12z/data=!3m1!4b1!4m6!3m5!1s0x89e3652d0d3d311b:0x787cbf240162e8a0!8m2!3d42.3600825!4d-71.0588801!16zL20vMDFjeF8?hl=en"
                     target="_blank"><span><svg>
                             <use xlink:href="./assets/stripe.svg#marker" />

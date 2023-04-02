@@ -11,7 +11,11 @@
 		width: 100%;
 		grid-template-columns: minmax(0, 38rem);
 		justify-content: center;
+		justify-items: center;
 		gap: 4.2rem;
+		@include media(md) {
+			gap: 6rem;
+		}
 		@include media(lg) {
 			grid-template-columns: minmax(0, 50.5rem) minmax(0, 38rem);
 			gap: 3rem;
@@ -30,14 +34,14 @@
 		&-title {
 			color: var(--clr-dark-l);
 			font-weight: 400;
-			font-size: 15px;
+			font-size: 1.5rem;
 			line-height: 160%;
 			letter-spacing: 0;
 			text-align: center;
-			letter-spacing: 0.06em;
-			@include media(lg) {
+			@include media(md) {
 				text-align: left;
 				line-height: 110%;
+				letter-spacing: 0.06em;
 			}
 		}
 	}
@@ -49,7 +53,7 @@
 		border-radius: 9px;
 		gap: 1.3rem;
 		max-width: 28.1rem;
-		@include media(lg) {
+		@include media(md) {
 			align-items: flex-start;
 			max-width: 34.9rem;
 		}
@@ -76,9 +80,10 @@
 			}
 		}
 		&-placeholder {
-			letter-spacing: 1.2px;
+			font-size: 1.5rem;
+			letter-spacing: 0.06em;
 			color: #545454;
-			@include media(lg) {
+			@include media(md) {
 				font-size: 20px;
 				line-height: 115%;
 			}
@@ -114,21 +119,22 @@
 		line-height: 18px;
 		color: var(--clr-dark-m);
 		text-align: justify;
-		@include media(lg) {
+		@include media(md) {
 			text-align: left;
 		}
 	}
 	&__decor {
-		width: 100%;
+		width: clamp(26rem, 40vw, 50.5rem);
 		aspect-ratio: 1 / 0.52;
 		background-image: url(../assets/donation-dog-sm-min.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 		@include media(md) {
-			background-image: url(../assets/donation-dog-md-min.png);
+			width: 50.5rem;
+			max-width: 50.5rem;
+			background-image: url(../assets/donation-dog-lg-min.png);
 		}
 		@include media(lg) {
-			background-image: url(../assets/donation-dog-lg-min.png);
 			order: -1;
 			transform: translateY(10px);
 		}

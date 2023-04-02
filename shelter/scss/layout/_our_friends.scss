@@ -4,9 +4,9 @@
 		padding-block: 4.2rem;
 		padding-inline: 1.5rem;
 		background-color: var(--clr-light-l);
-
 		@include media(md) {
 			padding-block: 8rem 10rem;
+			padding-inline: 0;
 		}
 	}
 
@@ -21,6 +21,7 @@
 	}
 
 	&.pets {
+		padding-block: 4.2rem;
 		@include media(md) {
 			padding-block: 8rem 7.6rem;
 		}
@@ -31,7 +32,13 @@
 	&__layout.pets {
 		display: grid;
 		margin-bottom: 4.2rem;
+		grid-template-columns: 1fr;
+		justify-items: center;
+		gap: 3rem 0;
 		@include media(md) {
+			grid-template-columns: min-content min-content;
+			justify-content: center;
+			gap: 3rem 4rem;
 			margin-bottom: 4rem;
 		}
 		@include media(lg) {

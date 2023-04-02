@@ -1,6 +1,18 @@
 @use '../absttracts/' as *;
 .slider {
 	z-index: 0;
+
+	max-width: 100%;
+	margin: 0 auto;
+	@include media(md) {
+		padding-inline: 4.5rem;
+	}
+	@include media(lg) {
+		padding-inline: 10.5rem;
+	}
+	&__wrapper {
+		overflow-x: hidden;
+	}
 	&__action {
 		margin-top: 2rem;
 		display: flex;
@@ -20,10 +32,17 @@
 		transform: rotate(180deg);
 	}
 	&__content {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: 100%;
+		justify-items: center;
+
+		@include media(md) {
+			grid-auto-columns: minmax(50%, 1fr);
+		}
 		@include media(lg) {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			justify-content: space-between;
+			grid-auto-columns: 27rem;
+			justify-items: flex-start;
 			gap: 9rem;
 		}
 	}

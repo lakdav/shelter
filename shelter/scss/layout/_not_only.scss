@@ -1,29 +1,58 @@
 @use '../absttracts/' as *;
 .not_only {
-	--pt: 3rem;
-	--pb: 2rem;
-	--min-h: 70.3rem;
+	--pt: 2.9rem;
 	&__layout {
-		padding-top: var(--pt);
-		padding-bottom: var(--pb);
-		min-height: var(--min-h);
+		margin-top: var(--pt);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10.5rem;
+		@include media(md) {
+			gap: 10rem;
+		}
+		@include media(lg) {
+			--pt: 6rem;
+			gap: 4.2rem;
+			flex-direction: row;
+		}
+	}
+	&__content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 4.2rem;
-		background-image: url(../assets/puppy-sm-min.png);
-		background-repeat: no-repeat;
-		background-position: bottom center;
 		@include media(md) {
-			background-image: url(../assets/puppy-md-min.png);
+			max-width: 46rem;
+			& .heading {
+				align-self: start;
+			}
 		}
 		@include media(lg) {
 			--pt: 6 rem;
-			--min-h: 78.8rem;
-			align-items: start;
+			transform: translateY(-4rem);
+			max-width: auto;
 			justify-content: center;
-			background-image: url(../assets/puppy-lg-min.png);
-			background-position: right bottom;
+			align-items: flex-start;
+		}
+	}
+	&__decor {
+		width: 100%;
+		width: 26rem;
+		min-height: 27.2rem;
+		background-image: url(../assets/puppy-sm-min.png);
+		background-repeat: no-repeat;
+		align-self: flex-end;
+		background-size: cover;
+		@include media(sm) {
+			width: clamp(26rem, 50vw, 56.9rem);
+			height: clamp(27.2rem, 50vw, 59.3rem);
+		}
+		@include media(md) {
+			width: clamp(56.9rem, 60vw, 69.8rem);
+			height: clamp(59.3rem, 60vw, 72.8rem);
+		}
+		@include media(lg) {
+			align-self: center;
 		}
 	}
 }
