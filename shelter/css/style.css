@@ -814,7 +814,13 @@ body {
   width: 100%;
   grid-template-columns: minmax(0, 38rem);
   justify-content: center;
+  justify-items: center;
   gap: 4.2rem;
+}
+@media screen and (min-width: 768px) {
+  .in_addition__layout {
+    gap: 6rem;
+  }
 }
 @media screen and (min-width: 1280px) {
   .in_addition__layout {
@@ -836,16 +842,16 @@ body {
 .in_addition__form-title {
   color: var(--clr-dark-l);
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.5rem;
   line-height: 160%;
   letter-spacing: 0;
   text-align: center;
-  letter-spacing: 0.06em;
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .in_addition__form-title {
     text-align: left;
     line-height: 110%;
+    letter-spacing: 0.06em;
   }
 }
 .in_addition__donation {
@@ -857,7 +863,7 @@ body {
   gap: 1.3rem;
   max-width: 28.1rem;
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .in_addition__donation {
     align-items: flex-start;
     max-width: 34.9rem;
@@ -882,10 +888,11 @@ body {
   display: grid;
 }
 .in_addition__donation-placeholder {
-  letter-spacing: 1.2px;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
   color: #545454;
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .in_addition__donation-placeholder {
     font-size: 20px;
     line-height: 115%;
@@ -925,13 +932,13 @@ body {
   color: var(--clr-dark-m);
   text-align: justify;
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .in_addition__text {
     text-align: left;
   }
 }
 .in_addition__decor {
-  width: 100%;
+  width: clamp(26rem, 40vw, 50.5rem);
   aspect-ratio: 1/0.52;
   background-image: url(../assets/donation-dog-sm-min.png);
   background-repeat: no-repeat;
@@ -939,12 +946,13 @@ body {
 }
 @media screen and (min-width: 768px) {
   .in_addition__decor {
-    background-image: url(../assets/donation-dog-md-min.png);
+    width: 50.5rem;
+    max-width: 50.5rem;
+    background-image: url(../assets/donation-dog-lg-min.png);
   }
 }
 @media screen and (min-width: 1280px) {
   .in_addition__decor {
-    background-image: url(../assets/donation-dog-lg-min.png);
     order: -1;
     transform: translateY(10px);
   }
