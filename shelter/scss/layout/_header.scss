@@ -2,7 +2,7 @@
 .header {
 	--pb: 3rem;
 	--pi: 1rem;
-	&-layout {
+	&__layout {
 		padding-block: var(--pb);
 		padding-inline: var(--pi);
 		display: flex;

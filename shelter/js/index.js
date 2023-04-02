@@ -22,14 +22,10 @@ if (sliderContent) {
 
 //========================pets page===========================
 const pets_friends_layout = document.getElementById('pets_layout');
+const sm = window.matchMedia('(max-width: 767px)');
+const md = window.matchMedia('(min-width: 768px)');
+const lg = window.matchMedia('(min-width: 1280px)');
 
-if (pets_friends_layout) {
-	let HTML_STRING = '';
-	for (let i = 0; i < data.length; i++) {
-		HTML_STRING += createContent(data[i]);
-	}
-	pets_friends_layout.insertAdjacentHTML('afterbegin', HTML_STRING);
-}
 function createContent(data) {
 	return `<article class="card">
 	<div class="card__image">
@@ -39,3 +35,33 @@ function createContent(data) {
 	<button id="card-modal" class="card__btn btn outlined">Learn more</button>
 	</article>`;
 }
+const setContenfForPets = () => {
+	pets_friends_layout.innerHTML = '';
+	if (pets_friends_layout) {
+		let HTML_STRING = '';
+		for (let i = 0; i < count; i++) {
+			HTML_STRING += createContent(data[i]);
+		}
+		pets_friends_layout.insertAdjacentHTML('afterbegin', HTML_STRING);
+	}
+};
+let count = 3;
+setContenfForPets();
+sm.addEventListener('change', (e) => {
+	if (e.matches) {
+		count = 3;
+		setContenfForPets();
+	}
+});
+md.addEventListener('change', (e) => {
+	if (e.matches) {
+		count = 6;
+		setContenfForPets();
+	}
+});
+lg.addEventListener('change', (e) => {
+	if (e.matches) {
+		count = 8;
+		setContenfForPets();
+	}
+});

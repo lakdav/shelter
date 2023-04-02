@@ -155,7 +155,7 @@ body {
   --pb: 3rem;
   --pi: 1rem;
 }
-.header-layout {
+.header__layout {
   padding-block: var(--pb);
   padding-inline: var(--pi);
   display: flex;
@@ -565,6 +565,9 @@ body {
     gap: 6rem;
   }
 }
+.our_friends.pets {
+  padding-block: 4.2rem;
+}
 @media screen and (min-width: 768px) {
   .our_friends.pets {
     padding-block: 8rem 7.6rem;
@@ -578,9 +581,15 @@ body {
 .our_friends__layout.pets {
   display: grid;
   margin-bottom: 4.2rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 3rem 0;
 }
 @media screen and (min-width: 768px) {
   .our_friends__layout.pets {
+    grid-template-columns: min-content min-content;
+    justify-content: center;
+    gap: 3rem 4rem;
     margin-bottom: 4rem;
   }
 }
