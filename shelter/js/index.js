@@ -59,24 +59,24 @@ if (pets_friends_layout) {
 	if (lg.matches) {
 		count = 8;
 	}
-	// console.log(count);
 	setContenfForPets(count);
-	sm.addEventListener('change', (e) => {
-		if (e.matches) {
-			count = 3;
-			setContenfForPets(count);
-		}
-	});
+
 	md.addEventListener('change', (e) => {
 		if (e.matches) {
 			count = 6;
-			setContenfForPets(count);
+		} else {
+			count = 3;
 		}
+		console.log(count);
+		setContenfForPets(count);
 	});
+
 	lg.addEventListener('change', (e) => {
 		if (e.matches) {
 			count = 8;
-			setContenfForPets(count);
+		} else {
+			count = 6;
 		}
+		setContenfForPets(count);
 	});
 }

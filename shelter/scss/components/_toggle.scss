@@ -6,8 +6,25 @@
 		border: none;
 		transform: rotate(-90deg);
 		transition: transform 0.3s;
+		z-index: 9999;
+		svg {
+			transition: stroke 0.3s;
+		}
 		&[aria-expanded='true'] {
 			transform: rotate(0deg);
+			&.pets {
+				svg {
+					stroke: #f1cdb3;
+				}
+			}
+		}
+		svg {
+			stroke: #f1cdb3;
+		}
+		&.pets {
+			svg {
+				stroke: black;
+			}
 		}
 	}
 }

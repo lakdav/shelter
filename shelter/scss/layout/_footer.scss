@@ -13,6 +13,7 @@
 		display: grid;
 		margin-inline: auto;
 		grid-template-columns: minmax(0, 30rem);
+		justify-content: center;
 		gap: 4rem;
 		@include media(md) {
 			grid-template-columns: 1fr 1fr;
@@ -30,7 +31,7 @@
 		letter-spacing: 0.06em;
 		white-space: normal;
 		max-width: 27.8rem;
-		line-height: 129%;
+		line-height: 128% !important;
 		@include media(md) {
 			min-width: 28rem;
 		}
