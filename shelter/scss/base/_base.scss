@@ -18,6 +18,9 @@
 body {
 	font-family: 'Georgia', serif;
 	overflow-x: hidden;
+	&.overflow-hidden {
+		overflow: hidden;
+	}
 }
 
 .grid {
@@ -59,4 +62,32 @@ body {
 }
 .mx-43 {
 	width: 43rem;
+}
+.overlow {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 99;
+	opacity: 0;
+	&__menu {
+		@media screen and (max-width: 767px) {
+			&.show {
+				animation: overlow-fadeIn 0.3s forwards;
+				display: block;
+			}
+		}
+	}
+}
+
+@keyframes overlow-fadeIn {
+	1% {
+		display: none;
+	}
+	2% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

@@ -1,16 +1,41 @@
 import data from './data.js';
-//navigation contro; for mobile
+
+function setOveflowHidden() {
+	document.body.classList.toggle('overflow-hidden');
+	togleOverlow();
+}
+function togleOverlow() {
+	document.querySelector('.overlow').classList.toggle('show');
+}
 const navigationMenu = document.getElementById('navigation');
 const navigationToggleBtn = document.getElementById('toggle-nav');
 
 navigationToggleBtn.addEventListener('click', () => {
+	setOveflowHidden();
 	navigationToggleBtn.setAttribute(
 		'aria-expanded',
 		navigationToggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true',
 	);
 	navigationMenu.classList.toggle('open');
 });
-
+navigationMenu.addEventListener('click', (e) => {
+	if (e.target.closest('.navigation__item')) {
+		setOveflowHidden();
+		navigationToggleBtn.setAttribute('aria-expanded', false);
+		navigationMenu.classList.remove('open');
+	}
+});
+document.addEventListener('click', (e) => {
+	if (e.target.closest('#navigation') || e.target.closest('#toggle-nav')) {
+		console.log('tt');
+		return;
+	}
+	if (navigationMenu.classList.contains('open')) {
+		setOveflowHidden();
+		navigationToggleBtn.setAttribute('aria-expanded', false);
+		navigationMenu.classList.remove('open');
+	}
+});
 //============================================================
 function createContent(data) {
 	return `<article class="card">
