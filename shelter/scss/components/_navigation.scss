@@ -67,7 +67,8 @@
 		}
 
 		&.active {
-			@include hover {
+			color: var(--clr-light-s);
+			@include media(md) {
 				color: var(--clr-dark-l);
 			}
 		}

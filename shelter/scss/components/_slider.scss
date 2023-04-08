@@ -1,7 +1,7 @@
 @use '../absttracts/' as *;
 .slider {
 	z-index: 0;
-
+	width: 100%;
 	max-width: 100%;
 	margin: 0 auto;
 	@include media(md) {
@@ -11,7 +11,12 @@
 		padding-inline: 10.5rem;
 	}
 	&__wrapper {
-		overflow-x: hidden;
+		overflow: hidden;
+		position: relative;
+		min-width: 100%;
+		max-width: 100%;
+		min-height: 43.5rem;
+		max-height: 43.5rem;
 	}
 	&__action {
 		margin-top: 2rem;
@@ -32,16 +37,26 @@
 		transform: rotate(180deg);
 	}
 	&__content {
+		position: absolute;
+		inset: 0;
 		display: grid;
-		grid-auto-flow: column;
-		grid-auto-columns: 100%;
+		grid-template-columns: 1fr;
 		justify-items: center;
-
+		height: min-content;
+		transform: translateX(0);
+		transition: transform 0.5s;
+		&.prev {
+			transform: translateX(-100%);
+		}
+		&.next {
+			transform: translateX(100%);
+		}
 		@include media(md) {
-			grid-auto-columns: minmax(50%, 1fr);
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
 		}
 		@include media(lg) {
-			grid-auto-columns: 27rem;
+			grid-template-columns: 1fr 1fr 1fr;
 			justify-items: flex-start;
 			gap: 9rem;
 		}

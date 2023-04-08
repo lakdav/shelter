@@ -1,4 +1,6 @@
+import Slider from './Slider.js';
 import data from './data.js';
+import { createContent } from './utils.js';
 
 function setOveflowHidden() {
 	document.body.classList.toggle('overflow-hidden');
@@ -27,7 +29,6 @@ navigationMenu.addEventListener('click', (e) => {
 });
 document.addEventListener('click', (e) => {
 	if (e.target.closest('#navigation') || e.target.closest('#toggle-nav')) {
-		console.log('tt');
 		return;
 	}
 	if (navigationMenu.classList.contains('open')) {
@@ -36,25 +37,17 @@ document.addEventListener('click', (e) => {
 		navigationMenu.classList.remove('open');
 	}
 });
-//============================================================
-function createContent(data) {
-	return `<article class="card">
-	<div class="card__image">
-		<img src="./assets/pets/${data.img}" alt="${data.name}">
-	</div>
-	<h2 class="card__name">${data.name}</h2>
-	<button id="card-modal" class="card__btn btn outlined">Learn more</button>
-	</article>`;
-}
 
 //========================main page===========================
-const sliderContent = document.querySelector('.slider__content');
-if (sliderContent) {
-	let HTML_STRING = '';
-	for (let i = 0; i < data.length; i++) {
-		HTML_STRING += createContent(data[i]);
-	}
-	sliderContent.insertAdjacentHTML('afterbegin', HTML_STRING);
+const sliderContainer = document.querySelector('.slider__wrapper');
+
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+if (sliderContainer) {
+	const slider = new Slider(sliderContainer, data);
+	slider.init();
+	nextBtn.addEventListener('click', () => slider.next(nextBtn));
+	prevBtn.addEventListener('click', () => slider.prev(prevBtn));
 }
 
 //========================pets page===========================
