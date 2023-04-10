@@ -16,8 +16,10 @@
 	--footer-gradient: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
 }
 body {
+	--p: 0;
 	font-family: 'Georgia', serif;
 	overflow-x: hidden;
+	padding-right: var(--p);
 	&.overflow-hidden {
 		overflow: hidden;
 	}
@@ -71,6 +73,14 @@ body {
 	z-index: 99;
 	opacity: 0;
 	&__menu {
+		@media screen and (max-width: 767px) {
+			&.show {
+				animation: overlow-fadeIn 0.3s forwards;
+				display: block;
+			}
+		}
+	}
+	&__modal {
 		@media screen and (max-width: 767px) {
 			&.show {
 				animation: overlow-fadeIn 0.3s forwards;
