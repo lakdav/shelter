@@ -19,8 +19,11 @@ export default class Pagination {
 		console.log(this.currentData);
 	};
 	#render = () => {
+		if (this.page > this.totalPage) {
+			this.page = this.totalPage;
+		}
 		if (this.action) {
-			this.action(this.getpage().pets, this.getpage().last);
+			this.action(this.getpage(this.page));
 		}
 	};
 	setCurrentData() {
@@ -69,7 +72,7 @@ export default class Pagination {
 			this.#render();
 		});
 	}
-	getpage(page = 1) {
+	getpage = (page = 1) => {
 		this.page = page;
 		const skip = (this.page - 1) * this.limit;
 		return {
@@ -79,7 +82,7 @@ export default class Pagination {
 			last: this.totalPage,
 			page: this.page,
 		};
-	}
+	};
 	createDate(page, items) {
 		let arr = [];
 		for (let i = 0; i < page; i++) {

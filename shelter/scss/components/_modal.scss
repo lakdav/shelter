@@ -1,0 +1,186 @@
+@use '../absttracts/' as *;
+.modal {
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	place-items: center;
+	background-color: rgba(41, 41, 41, 0.6);
+	display: none;
+	opacity: 0;
+	&.fadeIn {
+		display: grid;
+		animation: fadeIn-modal 0.6s forwards;
+	}
+	&.fadeOut {
+		display: grid;
+		animation: fadeOut-modal 0.3s forwards;
+	}
+	&__layout {
+		position: relative;
+		display: grid;
+		background-color: white;
+		grid-template-columns: 22rem;
+		padding: 1rem;
+		border-radius: 0.9rem;
+		gap: 1rem;
+		@include media(md) {
+			align-items: center;
+			grid-template-columns: 35rem 26rem;
+			grid-template-rows: 35rem;
+		}
+		@include media(lg) {
+			grid-template-columns: 50rem 35rem;
+			grid-template-rows: 50rem;
+		}
+	}
+	&__header {
+		width: 100%;
+		text-align: center;
+		@include media(md) {
+			text-align: left;
+		}
+		& h2 {
+			margin-bottom: 1rem;
+			font-weight: 400;
+			font-size: 3.5rem;
+			line-height: 130%;
+			letter-spacing: 0.06em;
+		}
+		& h3 {
+			margin-bottom: 2rem;
+			font-weight: 400;
+			font-size: 2rem;
+			line-height: 115%;
+			letter-spacing: 0.06em;
+			@include media(lg) {
+				margin-bottom: 4rem;
+			}
+		}
+	}
+	.modal__content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		@include media(md) {
+			align-items: left;
+		}
+	}
+	.modal__text {
+		margin-bottom: 2.4rem;
+		font-weight: 400;
+		font-size: 1.3rem;
+		line-height: 110%;
+		text-align: justify;
+		letter-spacing: 0.06em;
+		color: black;
+		@include media(md) {
+			text-align: left;
+			margin-bottom: 2rem;
+		}
+		@include media(lg) {
+			font-size: 1.5rem;
+			margin-bottom: 4rem;
+		}
+	}
+	.modal__decor {
+		display: none;
+		border-radius: 1rem;
+		overflow: hidden;
+		@include media(md) {
+			display: block;
+
+			aspect-ratio: 1;
+		}
+		@include media(md) {
+			aspect-ratio: 1;
+		}
+	}
+	.modal__close {
+		position: absolute;
+		bottom: 100%;
+		left: 100%;
+		transform: translateX(-50%);
+		width: 5.2rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		border: 2px solid var(--clr-primary);
+		background-color: rgb(0, 0, 0, 0);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background-color 0.3s;
+		@include hover {
+			background-color: rgb(0, 0, 0, 0.3);
+			cursor: pointer;
+			& span {
+				background-color: white;
+			}
+		}
+		span {
+			position: absolute;
+			width: 2rem;
+			height: 3px;
+			background-color: black;
+			transition: background-color 0.3s;
+			&:first-child {
+				transform: rotate(45deg);
+			}
+			&:last-child {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+	.dot {
+		display: block;
+		min-width: 0.4rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: var(--clr-primary);
+		margin-right: 1rem;
+	}
+	&__footer {
+		width: 100%;
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem 0;
+	}
+	&__item {
+		max-width: 100%;
+		display: flex;
+		align-items: center;
+	}
+	.field {
+		font-weight: 700;
+		font-size: 1.5rem;
+		line-height: 110%;
+	}
+	.value {
+		font-weight: 400;
+		font-size: 1.5rem;
+		line-height: 110%;
+	}
+}
+@keyframes fadeIn-modal {
+	1% {
+		display: none;
+	}
+	2% {
+		display: grid;
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		display: grid;
+	}
+}
+@keyframes fadeOut-modal {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}

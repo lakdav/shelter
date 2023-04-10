@@ -16,6 +16,7 @@ export default class Slider {
 		this.prevItems = [];
 		this.length = 1;
 		this.active = true;
+		this.handler = null;
 	}
 	init() {
 		this.setLength();
@@ -23,7 +24,9 @@ export default class Slider {
 	create() {
 		this.createContent(this.content, this.currentItems);
 		this.container.append(this.content);
+		this.setHandlers();
 	}
+
 	createEl(cls) {
 		const el = document.createElement('div');
 		el.className = 'slider__content';
@@ -109,6 +112,15 @@ export default class Slider {
 			this.active = true;
 		}
 	};
+	setHandlers() {
+		this.content.onclick = this.handler;
+		if (this.contentNext) {
+			this.contentNext.onclick = null;
+		}
+		if (this.contentPrev) {
+			this.contentPrev.onclick = null;
+		}
+	}
 	next(btn) {
 		const isActive = this.isActive.bind(null, btn);
 		const isInActive = this.isInActive.bind(null, btn);
@@ -133,6 +145,7 @@ export default class Slider {
 			for_remove.remove();
 			for_remove = null;
 		}
+
 		setTimeout(() => {
 			this.content.classList.add('prev');
 			this.contentNext.classList.remove('next');
@@ -144,6 +157,8 @@ export default class Slider {
 			this.nextItems = this.setItems();
 			this.createContent(this.contentNext, this.nextItems);
 			this.container.insertAdjacentElement('beforeEnd', this.contentNext);
+			this.content.onclick = this.handler;
+			this.setHandlers();
 		}, 0);
 	}
 
@@ -181,6 +196,7 @@ export default class Slider {
 			this.prevItems = this.setItems();
 			this.createContent(this.contentPrev, this.prevItems);
 			this.container.insertAdjacentElement('afterbegin', this.contentPrev);
+			this.setHandlers();
 		}, 0);
 	}
 }
