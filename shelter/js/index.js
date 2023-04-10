@@ -1,82 +1,135 @@
+import Modal from './Modal.js';
+import Pagination from './Pagination.js';
+import Slider from './Slider.js';
 import data from './data.js';
-//navigation contro; for mobile
-const navigationMenu = document.getElementById('navigation');
-const navigationToggleBtn = document.getElementById('toggle-nav');
+import { navigationHandler } from './navigation.js';
+import { createContent } from './utils.js';
+import { views } from './views.js';
 
-navigationToggleBtn.addEventListener('click', () => {
-	navigationToggleBtn.setAttribute(
-		'aria-expanded',
-		navigationToggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true',
-	);
-	navigationMenu.classList.toggle('open');
-});
+const {
+	sliderContainer,
+	nextBtn,
+	prevBtn,
+	pets_friends_layout,
+	firstPage,
+	prevPage,
+	currentPage,
+	nextPage,
+	lastPage,
+	spiner,
+} = views;
 
-//============================================================
-function createContent(data) {
-	return `<article class="card">
-	<div class="card__image">
-		<img src="./assets/pets/${data.img}" alt="${data.name}">
-	</div>
-	<h2 class="card__name">${data.name}</h2>
-	<button id="card-modal" class="card__btn btn outlined">Learn more</button>
-	</article>`;
-}
-
+navigationHandler();
 //========================main page===========================
-const sliderContent = document.querySelector('.slider__content');
-if (sliderContent) {
-	let HTML_STRING = '';
-	for (let i = 0; i < data.length; i++) {
-		HTML_STRING += createContent(data[i]);
-	}
-	sliderContent.insertAdjacentHTML('afterbegin', HTML_STRING);
-}
 
-//========================pets page===========================
-const pets_friends_layout = document.getElementById('pets_layout');
-const sm = window.matchMedia('(max-width: 767px)');
-const md = window.matchMedia('(min-width: 768px)');
-const lg = window.matchMedia('(min-width: 1280px)');
+if (sliderContainer) {
+	const modal = new Modal();
+	const modalHandler = (e) => {
+		const target = e.target;
+		if (target.closest('[data-modal]')) {
+			const pet = data.find((item) => item.name === target.dataset.modal);
 
-const setContenfForPets = (count) => {
-	pets_friends_layout.innerHTML = '';
-	if (pets_friends_layout) {
-		let HTML_STRING = '';
-		for (let i = 0; i < count; i++) {
-			HTML_STRING += createContent(data[i]);
+			modal.show(pet);
 		}
-		pets_friends_layout.insertAdjacentHTML('afterbegin', HTML_STRING);
-	}
-};
-if (pets_friends_layout) {
-	let count = 0;
-	if (sm.matches) {
-		count = 3;
-	}
-	if (md.matches) {
-		count = 6;
-	}
-	if (lg.matches) {
-		count = 8;
-	}
-	setContenfForPets(count);
+	};
 
-	md.addEventListener('change', (e) => {
-		if (e.matches) {
-			count = 6;
-		} else {
-			count = 3;
-		}
-		console.log(count);
-		setContenfForPets(count);
+	const slider = new Slider(sliderContainer, data);
+	slider.handler = modalHandler;
+	slider.init();
+
+	nextBtn.addEventListener('click', () => {
+		slider.next(nextBtn);
 	});
+	prevBtn.addEventListener('click', () => {
+		slider.prev(prevBtn);
+	});
+}
+//========================modal===============================
+//========================pets page===========================
 
-	lg.addEventListener('change', (e) => {
-		if (e.matches) {
-			count = 8;
-		} else {
-			count = 6;
+if (pets_friends_layout) {
+	const modal = new Modal();
+	const modalHandler = (e) => {
+		const target = e.target;
+		if (target.closest('[data-modal]')) {
+			const pet = data.find((item) => item.name === target.dataset.modal);
+			modal.show(pet);
 		}
-		setContenfForPets(count);
+	};
+	const pagination = new Pagination();
+	pagination.init();
+	const render = async (res) => {
+		const { pets, prev, page, last } = res;
+
+		pets_friends_layout.innerHTML = '';
+		let HTML_STRING = '';
+		for (let i = 0; i < pets.length; i++) {
+			HTML_STRING += createContent(data[pets[i]]);
+		}
+		spiner.setAttribute('aria-hidden', 'false');
+		await new Promise((r, j) => {
+			setTimeout(r, 150);
+		});
+		spiner.setAttribute('aria-hidden', 'true');
+		pets_friends_layout.insertAdjacentHTML('afterbegin', HTML_STRING);
+		pets_friends_layout.onclick = modalHandler;
+		lastPage.dataset.last = last;
+		paginationCheck(prev, page, last);
+		if (currentPage.dataset.page > last) {
+			currentPage.dataset.page = last;
+			currentPage.textContent = last;
+		}
+	};
+	render(pagination.getpage());
+	pagination.action = render;
+
+	function paginationCheck(prev, page, last) {
+		if (last - page === 0) {
+			nextPage.disabled = true;
+			lastPage.disabled = true;
+		}
+		if (last - page === 1) {
+			nextPage.disabled = false;
+			lastPage.disabled = true;
+		}
+		if (last - page >= 2) {
+			nextPage.disabled = false;
+			lastPage.disabled = false;
+		}
+		if (prev === 0) {
+			firstPage.disabled = true;
+			prevPage.disabled = true;
+		}
+		if (prev === 1) {
+			firstPage.disabled = true;
+			prevPage.disabled = false;
+		}
+		if (prev >= 2) {
+			firstPage.disabled = false;
+			prevPage.disabled = false;
+		}
+		currentPage.dataset.page = page;
+		currentPage.textContent = page;
+	}
+
+	nextPage.addEventListener('click', () => {
+		const page = +currentPage.dataset.page + 1;
+		const response = pagination.getpage(page);
+		render(response);
+	});
+	prevPage.addEventListener('click', () => {
+		const page = +currentPage.dataset.page - 1;
+		const response = pagination.getpage(page);
+		render(response);
+	});
+	firstPage.addEventListener('click', () => {
+		const page = 1;
+		const response = pagination.getpage(page);
+		render(response);
+	});
+	lastPage.addEventListener('click', () => {
+		const page = +lastPage.dataset.last;
+		const response = pagination.getpage(page);
+		render(response);
 	});
 }

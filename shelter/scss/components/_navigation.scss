@@ -10,7 +10,7 @@
 	justify-content: center;
 	transform: translateX(100%);
 	transition: transform 0.3s;
-	z-index: 9000;
+	z-index: 100;
 	&.open {
 		transform: translateX(0%);
 	}
@@ -67,7 +67,8 @@
 		}
 
 		&.active {
-			@include hover {
+			color: var(--clr-light-s);
+			@include media(md) {
 				color: var(--clr-dark-l);
 			}
 		}

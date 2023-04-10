@@ -1,9 +1,5 @@
 <sgv xmlns="http://www.w3.org/2000/svg">
-    <symbol id="menu"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="24" y1="30" x2="24"  stroke-width="2"/>
-      <line x1="14" y1="30" x2="14"  stroke-width="2"/>
-      <line x1="4" y1="30" x2="4"  stroke-width="2"/>
-     </symbol>
+
 
      <symbol id="arrow"  viewBox="0 0 14 6" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 2V4H3V6L0 3L3 0V2H14Z" />

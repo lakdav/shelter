@@ -28,25 +28,28 @@
                     </li>
                 </ul>
             </nav>
-            <button id="toggle-nav" class="toggle-nav mobile pets" aria-controls="navigation" aria-expanded="false">
-                <svg>
-                    <use xlink:href="./assets/stripe.svg#menu" />
+            <button id="toggle-nav" class="toggle-nav mobile" aria-controls="navigation" aria-expanded="false">
+                <svg id="menu" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="24" y1="30" x2="24" stroke-width="2" />
+                    <line x1="14" y1="30" x2="14" stroke-width="2" />
+                    <line x1="4" y1="30" x2="4" stroke-width="2" />
                 </svg>
             </button>
         </div>
     </header>
     <main>
-        <section id="our_friends" class="grid our_friends pets bg-pets friends">
+        <section id="our_friends" class="grid our_friends pets bg-pets friends relative">
             <h1 class="heading h2 pets__heading">Our friends who <br>
                 are looking for a house</h1>
             <div id="pets_layout" class="our_friends__layout pets"></div>
             <div class="pagination">
-                <button class="btn outlined action" disabled>&#60;&#60;</button>
-                <button class="btn outlined action" disabled>&#60;</button>
-                <button class="btn outlined action active">1</button>
-                <button class="btn outlined action">&#62;</button>
-                <button class="btn outlined action">&#62;&#62;</button>
+                <button id="firstPage" class="btn outlined action">&#60;&#60;</button>
+                <button id="prevPage" class="btn outlined action">&#60;</button>
+                <span id="currentPage" class="btn outlined action active"></span>
+                <button id="nextPage" class="btn outlined action">&#62;</button>
+                <button id="lastPage" class="btn outlined action">&#62;&#62;</button>
             </div>
+
         </section>
     </main>
     <footer id="footer" class="grid footer">
@@ -95,6 +98,11 @@
             <div class="footer__decor"></div>
         </div>
     </footer>
+    <div id="spiner" aria-hidden="true" class="loader">
+        <span></span>
+    </div>
+    <div class="overlow overlow__menu"></div>
+
     <script type="module" src="./js/index.js"></script>
 </body>
 
