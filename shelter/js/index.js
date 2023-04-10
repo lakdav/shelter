@@ -1,14 +1,8 @@
+import Pagination from './Pagination.js';
 import Slider from './Slider.js';
 import data from './data.js';
-import { createContent } from './utils.js';
+import { createContent, setOveflowHidden } from './utils.js';
 
-function setOveflowHidden() {
-	document.body.classList.toggle('overflow-hidden');
-	togleOverlow();
-}
-function togleOverlow() {
-	document.querySelector('.overlow').classList.toggle('show');
-}
 const navigationMenu = document.getElementById('navigation');
 const navigationToggleBtn = document.getElementById('toggle-nav');
 
@@ -40,7 +34,6 @@ document.addEventListener('click', (e) => {
 
 //========================main page===========================
 const sliderContainer = document.querySelector('.slider__wrapper');
-
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 if (sliderContainer) {
@@ -52,49 +45,91 @@ if (sliderContainer) {
 
 //========================pets page===========================
 const pets_friends_layout = document.getElementById('pets_layout');
-const sm = window.matchMedia('(max-width: 767px)');
-const md = window.matchMedia('(min-width: 768px)');
-const lg = window.matchMedia('(min-width: 1280px)');
-
-const setContenfForPets = (count) => {
-	pets_friends_layout.innerHTML = '';
-	if (pets_friends_layout) {
-		let HTML_STRING = '';
-		for (let i = 0; i < count; i++) {
-			HTML_STRING += createContent(data[i]);
-		}
-		pets_friends_layout.insertAdjacentHTML('afterbegin', HTML_STRING);
-	}
-};
+const firstPage = document.getElementById('firstPage');
+const prevPage = document.getElementById('prevPage');
+const currentPage = document.getElementById('currentPage');
+const nextPage = document.getElementById('nextPage');
+const lastPage = document.getElementById('lastPage');
+const spiner = document.getElementById('spiner');
 if (pets_friends_layout) {
-	let count = 0;
-	if (sm.matches) {
-		count = 3;
-	}
-	if (md.matches) {
-		count = 6;
-	}
-	if (lg.matches) {
-		count = 8;
-	}
-	setContenfForPets(count);
+	const pagination = new Pagination();
+	pagination.init();
 
-	md.addEventListener('change', (e) => {
-		if (e.matches) {
-			count = 6;
-		} else {
-			count = 3;
+	const render = async (pets, last) => {
+		pets_friends_layout.innerHTML = '';
+		let HTML_STRING = '';
+		for (let i = 0; i < pets.length; i++) {
+			HTML_STRING += createContent(data[pets[i]]);
 		}
-		console.log(count);
-		setContenfForPets(count);
+		spiner.setAttribute('aria-hidden', 'false');
+		await new Promise((r, j) => {
+			setTimeout(r, 150);
+		});
+		spiner.setAttribute('aria-hidden', 'true');
+		pets_friends_layout.insertAdjacentHTML('afterbegin', HTML_STRING);
+
+		lastPage.dataset.last = last;
+		if (currentPage.dataset.page > last) {
+			currentPage.dataset.page = last;
+			currentPage.textContent = last;
+		}
+	};
+	const response = pagination.getpage();
+	render(response.pets, response.last);
+	pagination.action = render;
+
+	const paginationCheck = (prev, page, last) => {
+		if (last - page === 0) {
+			nextPage.disabled = true;
+			lastPage.disabled = true;
+		}
+		if (last - page === 1) {
+			nextPage.disabled = false;
+			lastPage.disabled = true;
+		}
+		if (last - page >= 2) {
+			nextPage.disabled = false;
+			lastPage.disabled = false;
+		}
+		if (prev === 0) {
+			firstPage.disabled = true;
+			prevPage.disabled = true;
+		}
+		if (prev === 1) {
+			firstPage.disabled = true;
+			prevPage.disabled = false;
+		}
+		if (prev >= 2) {
+			firstPage.disabled = false;
+			prevPage.disabled = false;
+		}
+		currentPage.dataset.page = page;
+		currentPage.textContent = page;
+	};
+	paginationCheck(response.prev, response.page, response.last);
+
+	nextPage.addEventListener('click', () => {
+		const page = +currentPage.dataset.page + 1;
+		const response = pagination.getpage(page);
+		paginationCheck(response.prev, response.page, response.last);
+		render(response.pets, response.last);
 	});
-
-	lg.addEventListener('change', (e) => {
-		if (e.matches) {
-			count = 8;
-		} else {
-			count = 6;
-		}
-		setContenfForPets(count);
+	prevPage.addEventListener('click', () => {
+		const page = +currentPage.dataset.page - 1;
+		const response = pagination.getpage(page);
+		paginationCheck(response.prev, response.page, response.last);
+		render(response.pets, response.last);
+	});
+	firstPage.addEventListener('click', () => {
+		const page = 1;
+		const response = pagination.getpage(page);
+		paginationCheck(response.prev, response.page, response.last);
+		render(response.pets, response.last);
+	});
+	lastPage.addEventListener('click', () => {
+		const page = +lastPage.dataset.last;
+		const response = pagination.getpage(page);
+		paginationCheck(response.prev, response.page, response.last);
+		render(response.pets, response.last);
 	});
 }

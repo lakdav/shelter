@@ -77,7 +77,7 @@ export default class Slider {
 	setcurrentItems() {
 		const currentItems = [];
 		while (currentItems.length < 3) {
-			const index = getRndInteger(0, this.data.length);
+			const index = getRndInteger(0, this.data.length - 1);
 			if (currentItems.findIndex((item) => item.name === this.data[index].name) === -1) {
 				currentItems.push(this.data[index]);
 			}

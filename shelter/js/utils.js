@@ -11,5 +11,20 @@ export function media(mediaString) {
 	return window.matchMedia(mediaString);
 }
 export function getRndInteger(min, max) {
-	return Math.floor(Math.random() * (max - min)) + min;
+	let n = min;
+	if (min === 0) n = 1;
+	return Math.floor(Math.random() * (1 + max - min)) + min;
+}
+export function setOveflowHidden() {
+	document.body.classList.toggle('overflow-hidden');
+	togleOverlow();
+}
+export function togleOverlow() {
+	document.querySelector('.overlow').classList.toggle('show');
+}
+export function shuffle(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		let j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
 }
