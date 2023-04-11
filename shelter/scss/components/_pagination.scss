@@ -1,0 +1,9 @@
+@use '../absttracts/' as *;
+.pagination {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	@include media(md) {
+		gap: 2rem;
+	}
+}

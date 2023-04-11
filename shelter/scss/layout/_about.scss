@@ -1,0 +1,56 @@
+@use '../absttracts/' as *;
+.about {
+	--pt: 4.2rem;
+	--pb: 4.25rem;
+	padding: var(--pt) 1.5rem var(--pb);
+	background-color: var(--clr-light-xl);
+	@include media(md) {
+		--pt: 8rem;
+		--pb: 10rem;
+	}
+
+	&__layout {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4rem;
+		@include media(md) {
+			gap: 8rem;
+		}
+		@include media(lg) {
+			flex-direction: row;
+			flex-flow: row-reverse;
+			justify-content: center;
+			gap: 12rem;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		@include media(lg) {
+		}
+	}
+	&__decor {
+		height: clamp(35.36rem, 100vw, 40.8rem);
+		width: 100%;
+		max-width: 26rem;
+		background-image: url(../assets/about-pets-min.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		@include media(md) {
+			max-width: 30rem;
+		}
+	}
+	&__title {
+		margin-bottom: 2.5rem;
+	}
+	& .paragraph {
+		max-width: 43rem;
+	}
+	&__paragraph {
+		margin-bottom: 2.2rem;
+		@include media(md) {
+			margin-bottom: 2.3319rem;
+		}
+	}
+}

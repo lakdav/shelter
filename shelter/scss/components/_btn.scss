@@ -1,0 +1,64 @@
+@use '../absttracts/' as *;
+.btn {
+	background-color: var(--clr-primary);
+	color: var(--clr-dark-3xl);
+	border: 2px solid transparent;
+	line-height: 130%;
+	font-size: 1.7rem;
+	padding: 1.3rem 4.3rem;
+	border-radius: 10rem;
+	transition: background-color 0.225s, border 0.225s;
+	font-family: 'Georgia', serif;
+	white-space: nowrap;
+	letter-spacing: 0.06em;
+	@include hover {
+		background-color: var(--clr-primary-light);
+		cursor: pointer;
+	}
+	&:focus {
+		outline: none;
+	}
+	&.outlined {
+		background-color: var(--clr-light-xl);
+		border: 2px solid var(--clr-primary);
+		@include hover {
+			cursor: pointer;
+			background-color: var(--clr-primary-light);
+			border: 2px solid transparent;
+		}
+		&.action {
+			padding: 0;
+			min-width: 5.2rem;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2rem;
+			background-color: transparent;
+			@include hover {
+				cursor: pointer;
+				background-color: var(--clr-primary-light);
+				border: 2px solid transparent;
+			}
+			svg {
+				fill: #292929;
+				max-width: 1.4rem;
+			}
+			&.active {
+				background-color: var(--clr-primary);
+			}
+			&:disabled {
+				color: var(--clr-dark-s);
+				border: 2px solid var(--clr-dark-s);
+				@include hover {
+					cursor: not-allowed;
+					background-color: white;
+				}
+				svg {
+					fill: var(--clr-dark-s) !important;
+				}
+			}
+		}
+	}
+}

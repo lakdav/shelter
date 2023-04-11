@@ -1,0 +1,32 @@
+@use '../absttracts/' as *;
+.heading {
+	--lts: 0.06em;
+	color: var(--clr-dark-l);
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	@extend %h3-mobile;
+	letter-spacing: var(--lts);
+	&.white {
+		color: var(--clr-light-xl);
+	}
+	&.h1 {
+		@media screen and (min-width: 768px) {
+			--lts: 0;
+			font-size: 4.4rem;
+			line-height: 1.3;
+		}
+	}
+	&.h2 {
+		@media screen and (min-width: 768px) {
+			font-size: 3.5rem;
+			line-height: 1.3;
+			letter-spacing: 0.06em;
+		}
+	}
+	&.right {
+		@media screen and (min-width: 768px) {
+			text-align: left;
+		}
+	}
+}

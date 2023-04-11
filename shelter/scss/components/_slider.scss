@@ -1,0 +1,64 @@
+@use '../absttracts/' as *;
+.slider {
+	z-index: 0;
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	@include media(md) {
+		padding-inline: 4.5rem;
+	}
+	@include media(lg) {
+		padding-inline: 10.5rem;
+	}
+	&__wrapper {
+		overflow: hidden;
+		position: relative;
+		min-width: 100%;
+		max-width: 100%;
+		min-height: 43.5rem;
+		max-height: 43.5rem;
+	}
+	&__action {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: space-between;
+		padding-inline: 4.3rem;
+		@include media(md) {
+			position: absolute;
+			width: 100%;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			padding-inline: 0;
+			z-index: -1;
+		}
+	}
+	&__next {
+		transform: rotate(180deg);
+	}
+	&__content {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		justify-items: center;
+		height: min-content;
+		transform: translateX(0);
+		transition: transform 0.5s;
+		&.prev {
+			transform: translateX(-100%);
+		}
+		&.next {
+			transform: translateX(100%);
+		}
+		@include media(md) {
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+		}
+		@include media(lg) {
+			grid-template-columns: 1fr 1fr 1fr;
+			justify-items: flex-start;
+			gap: 9rem;
+		}
+	}
+}

@@ -1,0 +1,30 @@
+.toggle {
+	&-nav {
+		background-color: transparent;
+		width: 3rem;
+		height: 3.2rem;
+		border: none;
+		transform: rotate(-90deg);
+		transition: transform 0.3s;
+		z-index: 101;
+		svg {
+			transition: stroke 0.3s;
+		}
+		&[aria-expanded='true'] {
+			transform: rotate(0deg);
+			&.pets {
+				svg {
+					stroke: #f1cdb3;
+				}
+			}
+		}
+		svg {
+			stroke: #f1cdb3;
+		}
+		&.pets {
+			svg {
+				stroke: black;
+			}
+		}
+	}
+}

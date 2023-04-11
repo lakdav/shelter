@@ -1,0 +1,77 @@
+@use '../absttracts/' as *;
+.help {
+	padding: 4.2rem 0.4rem;
+	padding-bottom: 0.4;
+	@include media(md) {
+		padding-block: 8rem 10.3rem;
+	}
+	&__layout {
+		display: flex;
+		gap: 4.2rem;
+		flex-direction: column;
+		@include media(md) {
+			gap: 6rem;
+		}
+		@include media(lg) {
+			padding-inline: 8rem;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 3rem;
+		@include media(md) {
+			gap: 5.5rem 2.7rem;
+			justify-content: center;
+		}
+		@include media(lg) {
+			gap: 5.4rem 12rem;
+		}
+	}
+	&__item {
+		flex: 1 0 100%;
+		@include media(sm) {
+			flex: 1 1 50%;
+			max-width: calc(50% - 1.5rem);
+		}
+		@include media(md) {
+			flex: 0 1 33.3%;
+			max-width: calc(33.3% - 3rem);
+		}
+		@include media(lg) {
+			flex: 0 1 auto;
+			max-width: auto;
+		}
+	}
+	&__item-link {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+		align-items: center;
+		@include media(md) {
+			gap: 3rem;
+		}
+		img {
+			max-width: 5rem;
+			@include media(md) {
+				max-width: 6rem;
+			}
+		}
+		h3 {
+			font-style: normal;
+			font-weight: 400;
+			font-size: 10px;
+			line-height: 110%;
+			letter-spacing: 0.06em;
+			color: var(--clr-dark-l);
+			@include media(sm) {
+				font-size: 15px;
+			}
+			@include media(md) {
+				font-size: 20px;
+				list-style: 23px;
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+@use '../absttracts/' as *;
+.paragraph {
+	@extend %body;
+	color: var(--clr-dark-xl);
+	text-align: center;
+	&.white {
+		color: var(--clr-dark-s);
+	}
+	&.justify {
+		text-align: justify;
+		color: var(--clr-dark-xl);
+		@include media(md) {
+			text-align: left;
+		}
+	}
+	&.right {
+		@include media(md) {
+			text-align: left;
+		}
+	}
+}

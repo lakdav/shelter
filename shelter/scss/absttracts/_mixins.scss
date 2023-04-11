@@ -1,0 +1,26 @@
+@mixin media($point) {
+	@if $point==lg {
+		@media screen and (min-width: 1280px) {
+			@content;
+		}
+	} @else if$point==md {
+		@media screen and (min-width: 768px) {
+			@content;
+		}
+	} @else if$point==sm {
+		@media screen and (min-width: 320px) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: calc($point * 1px)) {
+			@content;
+		}
+	}
+}
+@mixin hover {
+	@media screen and (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
